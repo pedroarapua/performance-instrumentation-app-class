@@ -1,0 +1,25 @@
+{
+  "name": "performance-instrumentation-app-class",
+  "version": "1.0.0",
+  "description": "Esse repositório possui conteúdos da aula de Performance e Instrumentação de Aplicações.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedroarapua/performance-instrumentation-app-class.git"
+  },
+  "author": "Pedro Henrique F. Dias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedroarapua/performance-instrumentation-app-class/issues"
+  },
+  "homepage": "https://github.com/pedroarapua/performance-instrumentation-app-class#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
