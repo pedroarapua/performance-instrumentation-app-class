@@ -12,7 +12,7 @@
 * Validar se os logs estão saindo no terminal
 * Criar index no kibana com o prefixo “logstash-*” (http://localhost:5601/app/management/data/index_management/indices)
 * Validar se os logs estão sendo apresentados no kibana
-* Fazer configuração de parse json no logstash (https://github.com/pedroarapua/performance-instrumentation-app-class/blob/master/src/instrumentation/03/logstash.conf)
+* Fazer configuração de parse json no logstash (https://github.com/pedroarapua/performance-instrumentation-app-class/blob/master/src/03-instrumentation/03/logstash.conf)
 * Fazer o restart do container do logstash 
 ```
 docker-compose restart logstash
