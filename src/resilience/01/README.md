@@ -1,0 +1,1 @@
+Implementação de retry manual

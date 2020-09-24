@@ -1,0 +1,1 @@
+Implementação de circuit breaker para apis
