@@ -1,0 +1,12 @@
+version: '2'
+services:
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+  elk:
+    image: sebp/elk
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
