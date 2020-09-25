@@ -17,5 +17,6 @@ npm install -g artillery
 ```
 artillery quick -r 1 -d 180 <url de erro>
 ```
-* Esperar até o processo terminar e validar se chegou o email com o incidente
+* Esperar até o processo terminar e validar se chegou o email com o incidente.
+* Esperar mais um tempo e validar se chegou o email com a resolução do incidente.
 
