@@ -1,4 +1,4 @@
-# Adição de Logs
+# Implementação de Logs locais com bunyan
 
 ### Steps
 * Instalação / Configuração de uma lib de log na aplicação (https://github.com/trentm/node-bunyan).

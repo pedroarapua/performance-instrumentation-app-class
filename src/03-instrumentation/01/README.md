@@ -1,4 +1,4 @@
-# Adição do NewRelic APM
+# Implementação de monitoramento com NewRelic APM
 
 ### Pre Requisitos 
 * Criação de conta New Relic Free (https://newrelic.com/signup?via=login).
