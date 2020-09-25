@@ -1,4 +1,4 @@
-# Escalabilidade Manual com Nginx Load Balance
+# Escalabilidade Nginx Load Balance + Docker
 
 ### Steps 1 - Criação da Aplicação e Imagem Docker (pra quem não quiser fazer, a imagem se encontra no dockerhub pedroarapua/node-web-app:latest)
 * Criar uma api de Hello World, expondo a mesma na porta 3000
