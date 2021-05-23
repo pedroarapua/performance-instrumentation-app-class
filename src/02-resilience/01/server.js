@@ -1,23 +1,13 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+// variable to intercalate sucess / error
+let counter = 0;
 
-/**
- * Function to generate random integer values between two numbers
- * @param {*} min - min value
- * @param {*} max - max value
- */
-function getRandom(min = 0, max = 1) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// add root route to express
+// route called by client
 app.get('/', (req, res) => {
-  const value = getRandom();
-  
-  if(value === 1) {
+  counter++;
+  if(counter % 2 !== 0) {
     console.info('OK')
     res.send('OK');
   } else {
