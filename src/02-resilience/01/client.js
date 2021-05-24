@@ -1,5 +1,5 @@
 const requestPromise = require('request-promise');
-const url = process.env.URL || 'http://localhost:3000/';
+const url = process.env.URL || 'http://localhost:3000/shipping';
 const maxRetryCount = 1;
 
 const sleep = (ms) => {
@@ -8,25 +8,28 @@ const sleep = (ms) => {
 
 async function requestRetry (retryCount = 0) {
   retryCount++;
+  let response;
   
   try {
-    await requestPromise(url);
+    response = await requestPromise(url);
     console.info(`Success request ${retryCount}`);
   } catch(err) {
     console.info(`Failed request ${retryCount}`);
     if(retryCount <= maxRetryCount) {
       await sleep(1000);
-      await requestRetry(retryCount);
+      response = await requestRetry(retryCount);
     } else {
       throw err;
     }
   }
+
+  return response;
 }
 
 async function call() {
   try {
-    await requestRetry();
-    console.info('Result: OK\n')
+    const response = await requestRetry();
+    console.info(`Result: OK, value => ${response}\n`)
   } catch (err) {
     console.error('Result: ERROR\n')
   }

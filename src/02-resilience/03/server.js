@@ -2,10 +2,14 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// add root route to express
-app.get('/', (req, res) => {
-  console.log('OK');
-  res.send('OK');
+// route called by client
+app.get('/shipping', (req, res) => {
+  const response = {
+    price: 10
+  };
+
+  console.info('OK');
+  res.send(JSON.stringify(response));
 });
 
 // start application server

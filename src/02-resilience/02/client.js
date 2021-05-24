@@ -1,20 +1,19 @@
 const got = require('got');
-const url = process.env.URL || 'http://localhost:3000/';
+const url = process.env.URL || 'http://localhost:3000/shipping';
 const maxRetryCount = 1;
 
-async function requestRetry (retryCount = 0) {
-  await got(url, { 
+function requestRetry () {
+  return got(url, {
     retry: {
-      limit: maxRetryCount,
-      calculateDelay: () => 1000
+      limit: maxRetryCount
     }
   });
 }
 
 async function call() {
   try {
-    await requestRetry();
-    console.info('Result: OK\n')
+    const { body } = await requestRetry();
+    console.info(`Result: OK, value => ${body}\n`)
   } catch (err) {
     console.error('Result: ERROR\n')
   }

@@ -5,11 +5,16 @@ const port = process.env.PORT || 3000;
 let counter = 0;
 
 // route called by client
-app.get('/', (req, res) => {
+app.get('/shipping', (req, res) => {
   counter++;
   if(counter % 2 !== 0) {
-    console.info('OK')
-    res.send('OK');
+    // fixed response
+    const response = {
+      price: 10
+    };
+
+    console.info('OK');
+    res.send(JSON.stringify(response));
   } else {
     console.error('Something broke!')
     res.status(500).send('Something broke!');
