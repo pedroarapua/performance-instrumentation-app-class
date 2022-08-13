@@ -23,7 +23,7 @@ curl http://localhost:3000
 * Criando arquivo [Dockerfile](./Dockerfile)
 * Construindo imagem e taguiando a mesma
 ```
-docker build -t pos-facef/app:latest .
+docker build -t pos-facef/app:v1.0.0 .
 ```
 
 ### Step 3 - Configurando um docker-compose
@@ -50,8 +50,7 @@ docker-compose up -d app_instancia2
 curl http://localhost:3002
 ```
 
-### Steps 3 - Subindo o Nginx LoadBalance 
-```
+### Steps 5 - Subindo o Nginx LoadBalance 
 * Executar nginx
 ```
 docker-compose up -d nginx
@@ -59,4 +58,9 @@ docker-compose up -d nginx
 * Validar se o nginx ta respondendo na porta 80 e balanceando a carga entre as 2 instancias
 ```
 curl http://localhost:80
+```
+
+### Steps 5 - Destruindo a infra criada
+```
+docker-compose down
 ```
