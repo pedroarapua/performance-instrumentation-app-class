@@ -1,17 +1,14 @@
-# Escalabilidade Nginx Load Balance + Docker
+# Escalabilidade Manual com Nginx Load Balance e Docker
 
-### Steps 1 - Criação da Aplicação e Imagem Docker (pra quem quiser a imagem pronta: pedroarapua/node-web-app:latest)
-* Criar uma api de Hello World, expondo a mesma na porta 3000
-* Criar Dockerfile para rodar a aplicação
-* Criar imagem local
-```
-docker build -f <docker file path + docker file name> -t scalability/node-web-app .
-```
+### Steps 1 - Explicar Arquivos do Projeto
+* index.js
+* Dockerfile
+* docker-compose.yaml
 
-### Steps 2 - Execução da Aplicação
+### Steps 2 - Subindo as Aplicações
 * Executar aplicação 1
 ```
-docker run -p 3001:3000 -d scalability/node-web-app
+docker-compose up -d app_instancia1
 ```
 * Validar se a api ta respondendo na porta 3001
 ```
@@ -19,29 +16,20 @@ curl http://localhost:3001
 ```
 * Executar aplicação 2
 ```
-docker run -p 3002:3000 -d scalability/node-web-app
+docker-compose up -d app_instancia2
 ```
 * Validar se a api ta respondendo na porta 3002
 ```
 curl http://localhost:3002
 ```
 
-### Steps 3 - Criação da imagem nginx
-* Pegar o IP do docker na máquina (normalmente com o nome "docker0")
-```
-ifconfig
-```
-* Criar o nginx conf apontando para as 2 aplicações
-* Criar Dockerfile para substituir o nginx.conf
-* Criar imagem local
-```
-docker build -f <docker file path + docker file name> -t scalability/nginxloadbalance .
+### Steps 3 - Subindo o Nginx LoadBalance 
 ```
 * Executar nginx
 ```
-docker run -p 3000:80 -d scalability/nginxloadbalance
+docker-compose up -d nginx
 ```
-* Validar se a api ta respondendo na porta 3002
+* Validar se o nginx ta respondendo na porta 80 e balanceando a carga entre as 2 instancias
 ```
-curl http://localhost:3000
+curl http://localhost:80
 ```
