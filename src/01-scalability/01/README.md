@@ -1,11 +1,38 @@
 # Escalabilidade Manual com Nginx Load Balance e Docker
 
-### Steps 1 - Explicar Arquivos do Projeto
-* index.js
-* Dockerfile
-* docker-compose.yaml
+### Step 1 - Criando Aplicação
+* Iniciando aplicação nodejs
+```
+npm init -y
+```
+* Instalando express lib
+```
+npm install express --save
+```
+* Criando aquivo [index.js](./index.js)
+* Executando Aplicação
+```
+node index.js
+```
+* Validar funcionamento da api
+```
+curl http://localhost:3000
+```
 
-### Steps 2 - Subindo as Aplicações
+### Step 2 - Criando imagem docker da aplicação
+* Criando arquivo [Dockerfile](./Dockerfile)
+* Construindo imagem e taguiando a mesma
+```
+docker build -t pos-facef/app:latest .
+```
+
+### Step 3 - Configurando um docker-compose
+* Criando arquivo [docker-compose](./docker-compose.yaml)
+* Configurar [app_instancia1](./docker-compose.yaml)
+* Configurar [app_instancia2](./docker-compose.yaml)
+* Configurar [nginx](./docker-compose.yaml)
+
+### Step 4 - Subindo as Aplicações
 * Executar aplicação 1
 ```
 docker-compose up -d app_instancia1

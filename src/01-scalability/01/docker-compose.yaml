@@ -2,18 +2,14 @@ version: '3'
 
 services:
   app_instancia1:
-    build:
-      context: ../../../
-      dockerfile: ./src/01-scalability/01/Dockerfile
+    build: .
     ports:
       - "3001:3000"
     networks:
       - app-network
   
   app_instancia2:
-    build:
-      context: ../../../
-      dockerfile: ./src/01-scalability/01/Dockerfile
+    build: .
     ports:
       - "3002:3000"
     networks:

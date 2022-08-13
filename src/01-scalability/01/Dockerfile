@@ -13,6 +13,6 @@ RUN npm install
 # RUN npm ci --only=production
 
 # Bundle app source
-COPY src/01-scalability/01/index.js ./index.js
+COPY ./index.js ./index.js
 
 CMD [ "node", "index.js" ]
