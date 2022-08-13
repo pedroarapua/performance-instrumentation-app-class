@@ -6,6 +6,9 @@ Esse repositório possui conteúdos da aula de Performance e Instrumentação de
 * Instalação [NodeJS] (https://nodejs.org/pt-br/download/)
 * Instalação [Docker] (https://docs.docker.com/engine/install/)
 * Instalação [Docker Compose] (https://docs.docker.com/compose/install/)
+* Instalação [Kubectl Command] (https://kubernetes.io/docs/tasks/tools/)
+* Instalação [Kubernetes] (https://kubernetes.io/docs/tasks/tools/)
+* Instalação [K6] (https://k6.io/docs/getting-started/installation/)
 * Criação [NewRelic Account] (https://newrelic.com/signup?via=login)
 
 ### Slide
