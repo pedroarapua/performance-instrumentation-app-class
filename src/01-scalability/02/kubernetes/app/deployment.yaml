@@ -14,7 +14,7 @@ spec:
     spec:
       containers: 
       - name: app
-        image: pos-facef/app:v1.0.0
+        image: pos-facef/app1:v1.0.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000

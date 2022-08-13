@@ -13,7 +13,7 @@ kubectl cluster-info --context kind-pos-facef
 ```
 * Instalando o Metric Server
 ```
-kubectl apply -f ./kubernetes/cluster
+kubectl apply -f https://raw.githubusercontent.com/pedroarapua/performance-instrumentation-app-class/v2/src/01-scalability/02/kubernetes/cluster/components.yaml
 ```
 
 ### Step 3 - Criando Manifestos do Kubernetes
@@ -24,7 +24,7 @@ kubectl apply -f ./kubernetes/cluster
 ### Step 4 - Subindo a Aplicação no Kubernetes
 * Adicionando a imagem dentro do cluster (NÃO NECESSÁRIO DOCKER REGISTRY)
 ```
-kind load docker-image pos-facef/app:v1.0.0 --name pos-facef
+kind load docker-image pos-facef/app1:v1.0.0 --name pos-facef
 ```
 * Aplicando os manifestos kubernetes
 ```
