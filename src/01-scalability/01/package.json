@@ -1,7 +1,7 @@
 {
   "name": "01",
   "version": "1.0.0",
-  "description": "### Step 1 - Instalando Express Framework ``` npm install express --save ```",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node app1/index.js"

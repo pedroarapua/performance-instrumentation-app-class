@@ -17,9 +17,9 @@ kubectl apply -f https://raw.githubusercontent.com/pedroarapua/performance-instr
 ```
 
 ### Step 3 - Criando Manifestos do Kubernetes
-* Criando [manifesto de deploy](./kubernetes/app/deployment.yaml)
-* Criando [manifesto de service](./kubernetes/app/service.yaml)
-* Criando [manifesto de hpa](./kubernetes/app/hpa.yaml)
+* Criando [manifesto de deploy](./kubernetes/app1/deployment.yaml)
+* Criando [manifesto de service](./kubernetes/app1/service.yaml)
+* Criando [manifesto de hpa](./kubernetes/app1/hpa.yaml)
 
 ### Step 4 - Subindo a Aplicação no Kubernetes
 * Adicionando a imagem dentro do cluster (NÃO NECESSÁRIO DOCKER REGISTRY)
@@ -28,7 +28,7 @@ kind load docker-image pos-facef/app1:v1.0.0 --name pos-facef
 ```
 * Aplicando os manifestos kubernetes
 ```
-kubectl apply -f ./kubernetes/app
+kubectl apply -f ./kubernetes/app1
 ```
 * Obtendo o IP para o Cluster Kubernetes (field: INTERNAL-IP)
 ```
@@ -57,5 +57,5 @@ k6 run ./k6/script.js
 
 ### Step 6 - Removendo Deploy da Aplicação
 ```
-kubectl delete -f ./kubernetes/app
+kubectl delete -f ./kubernetes/app1
 ```
