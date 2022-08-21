@@ -57,7 +57,7 @@ services:
       - "3003:3000"
     environment:
       PORT: 3000
-      NGINX_URL: "http://nginx:80/"
+      NGINX_URL: "http://nginx:80"
       REDIS_HOST: "redis" # NEW CODE
       REDIS_PORT: "6379" # NEW CODE
     depends_on:

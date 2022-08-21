@@ -48,7 +48,7 @@ services:
       - "3003:3000"
     environment:
       PORT: 3000
-      NGINX_URL: "http://nginx:80/"
+      NGINX_URL: "http://nginx:80"
     depends_on:
       - nginx
     networks:
