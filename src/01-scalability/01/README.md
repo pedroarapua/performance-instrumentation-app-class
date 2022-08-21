@@ -1,7 +1,6 @@
 # Escalabilidade Manual com Nginx Load Balance e Docker
 
 ### Step 1 - Criando Aplicação
-```
 * Iniciando aplicação nodejs
 ```
 npm init -y
