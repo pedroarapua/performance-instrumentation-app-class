@@ -45,11 +45,11 @@
   ```
 
 * Configurar/Executar script de carga para forçar uso de CPU
-  * Criar pasta "k6"
+  * Criar pasta "k6" em "${WORKSPACE}/app1"
   ```
   mkdir k6
   ```
-  * Criar [script](./k6/script.js)
+  * Criar script
   * Visualizar o percentual de utilização (execute o comando em uma aba do terminal)
   ```
   watch "kubectl get hpa"
@@ -60,10 +60,10 @@
   ```
   * Forçar uma carga na aplicação para subir o uso de CPU
   ```
-  k6 run ./k6/script.js
+  k6 run ./app1/k6/script.js
   ```
 
 * Removendo Deploy da Aplicação
 ```
-kubectl delete -f ./kubernetes/app1
+kubectl delete -f ./app1/kubernetes
 ```
