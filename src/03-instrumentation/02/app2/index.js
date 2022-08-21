@@ -60,6 +60,7 @@ app.use((req, res, next) => {
 //END NEW CODE
 
 async function requestFallbackRedis () {
+  console.info('Fallback Executado');
   let response = {
     data: {
       value: 100

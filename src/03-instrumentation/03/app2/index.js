@@ -77,6 +77,7 @@ app.use((req, res, next) => {
 });
 
 async function requestFallbackRedis () {
+  console.info('Fallback Executado');
   let response = {
     data: {
       value: 100

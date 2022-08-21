@@ -35,7 +35,6 @@ docker-compose stop app1_instancia1 app1_instancia2
 ```
 docker-compose logs -f app2_instancia1
 ```
-* Adicionando fallback para o circuit breaker
 * Iniciando os containers app1_instancia1 e app1_instancia2
 ```
 docker-compose start app1_instancia1 app1_instancia2

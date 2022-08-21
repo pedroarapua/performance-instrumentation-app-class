@@ -20,6 +20,7 @@ breaker.on('halfOpen', () => console.log(`HALF_OPEN: The breaker`));
 breaker.on('close', () => console.log(`CLOSE: The breaker`));
 
 breaker.fallback(() => {
+  console.info('Fallback Executado');
   return {
     data: {
       value: 100

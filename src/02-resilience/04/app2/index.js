@@ -31,6 +31,7 @@ client.connect().then(() => console.log('Redis Conectado'));
 const REDISCACHEKEY = 'get-api';
 
 async function requestFallbackRedis () {
+  console.info('Fallback Executado');
   let response = {
     data: {
       value: 100
