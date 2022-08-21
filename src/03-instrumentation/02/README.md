@@ -1,4 +1,4 @@
-# Implementação de Logs locais com bunyan
+# Implementação de Logs com bunyan
 
 ### Steps
 * Instalando lib bunyan
@@ -21,10 +21,11 @@ docker-compose build
 * Subindo aplicações com docker-compose
 ```
 docker-compose up -d
+```
 * Fazer alguns requests na app2 e validar se os logs estão aparecendo no terminal.
 ```
 watch "curl http://localhost:3003/get"
-docker-compose logs -f app2_instancia1
+docker-compose logs -f
 ```
 * Remover todos os recursos criados
 ```

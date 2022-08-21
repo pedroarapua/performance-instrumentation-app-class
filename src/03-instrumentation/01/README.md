@@ -24,13 +24,8 @@
     ```
     require('newrelic');
     ```
-    * Alterar service "app1_instancia1" e "app1_instancia2" para adicionar o arquivo .env
+    * Alterar service "app1_instancia1" e "app1_instancia2" para adicionar o arquivo .env no docker-compose
   
-* Fazer alguns requests na app1 e validar se a aplicação apareceu no portal do newrelic.
-```
-watch "curl http://localhost:80"
-```
-
 * Configuração app2
     * Copiar arquivo de configuração
     ```
@@ -46,9 +41,7 @@ watch "curl http://localhost:80"
     ```
     require('newrelic');
     ```
-    * Alterar service "app2_instancia1" para adicionar o arquivo .env
-
-
+    * Alterar service "app2_instancia1" para adicionar o arquivo .env no docker-compose
 * Fazer build das imagens com docker-compose
 ```
 docker-compose build
@@ -56,7 +49,8 @@ docker-compose build
 * Subindo aplicações com docker-compose
 ```
 docker-compose up -d
-* Fazer alguns requests na app2 e validar se a aplicação apareceu no portal do newrelic.
+```
+* Fazer alguns requests na app2 e validar se a aplicação "app1" e "app2" apareceu no portal do newrelic.
 ```
 watch "curl http://localhost:3003/get"
 ```
