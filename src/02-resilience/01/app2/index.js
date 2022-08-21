@@ -9,9 +9,10 @@ const shippingUrl = `${nginxUrl}/shipping`;
 async function requestRetry (retryCount = 0, maxRetryCount = 1) {
   
   retryCount++;
-  
+  let response;
+
   try {
-    await requestPromise(shippingUrl);
+    response = await requestPromise(shippingUrl);
   } catch(err) {
     if(retryCount <= maxRetryCount) {
       console.info(`Executando Retry ${retryCount}`);
@@ -20,20 +21,20 @@ async function requestRetry (retryCount = 0, maxRetryCount = 1) {
       throw err;
     }
   }
+  return response;
 }
 
 app.get('/get', async (req, res) => {
   try {
     const response = await requestRetry();
-    console.info(`response => ${JSON.stringify(response)}`);
+    console.info(`SUCESS RESPONSE => ${JSON.stringify(response)}`);
     res.send(response);
   } catch (err) {
-    console.error('Alguma coisa ta errado');
+    console.error('ERROR RESPONSE => Alguma coisa ta errado')
     res.status(500).send('Alguma coisa ta errado');
   }
 });
 
-// start application server
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
