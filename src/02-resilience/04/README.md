@@ -23,9 +23,9 @@ npm install redis --save
   ```
   docker-compose up -d
   ```
-  * Fazer um request e analisar se foi retornado a url da app1
+  * Fazer alguns requests na aplicação.
   ```
-  curl http://localhost:3003/shipping
+  curl http://localhost:3003/get
   ```
   * Validar se foi gravado informações no cache do redis
   ```

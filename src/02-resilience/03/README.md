@@ -21,7 +21,7 @@ docker-compose up -d
 ```
 * Fazer alguns requests na aplicação.
 ```
-watch -n 5 "curl http://localhost:3003/shipping"
+watch -n 5 "curl http://localhost:3003/get"
 ```
 * Analisar logs dos containers app1_instancia1, app1_instancia2, app2_instancia1
 ```
