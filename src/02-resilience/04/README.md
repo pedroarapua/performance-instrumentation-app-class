@@ -36,12 +36,12 @@ npm install redis --save
   * Forçando indisponibilidade do app1 e validando resiliência utilizando fallback do cache do redis
   ```
   docker-compose stop app1_instancia1 app1_instancia2
-  curl http://localhost:3003/shipping
+  curl http://localhost:3003/get
   ```
   * Forçando indisponibilidade do redis e validando resiliência utilizando fallback com informações default no app2
   ```
   docker-compose stop redis
-  curl http://localhost:3003/shipping
+  curl http://localhost:3003/get
   ```
 * Remover todos os recursos criados
 ```

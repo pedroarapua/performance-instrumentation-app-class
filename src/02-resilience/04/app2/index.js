@@ -44,6 +44,7 @@ async function requestFallbackRedis () {
   try {
     const responseRedis = await client.get(REDISCACHEKEY);
     if(responseRedis) {
+      console.info('Retornando Fallback através do redis');
       response = JSON.parse(responseRedis);
     }
   } catch(err) {
