@@ -3,13 +3,13 @@
 ### Steps
 
 * Criando Manifestos do Kubernetes
-  * Criar pasta "kubernetes" em "${WORKSPACE}"
+  * Criar pasta "kubernetes" em "${WORKSPACE}/app1"
   ```
   mkdir kubernetes
   ```
-  * Criar manifesto de deploy em "${WORKSPACE}/kubernetes"
-  * Criar manifesto de service em "${WORKSPACE}/kubernetes"
-  * Criar manifesto de hpa em "${WORKSPACE}/kubernetes"
+  * Criar manifesto de deploy em "${WORKSPACE}/app1/kubernetes"
+  * Criar manifesto de service em "${WORKSPACE}/app1/kubernetes"
+  * Criar manifesto de hpa em "${WORKSPACE}/app1/kubernetes"
 
 * Criando/configurando cluster kubernetes com kind
   * Criando cluster (opcional)
