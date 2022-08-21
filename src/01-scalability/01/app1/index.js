@@ -7,14 +7,17 @@ const url = `http://${host}:${port}`;
 app.use(express.json());
 
 app.get('/shipping', (req, res) => {
-  res.send({
+  const data = {
     data: {
       value: 100
     },
     meta: {
       server: url
     }
-  });
+  };
+
+  console.info(`SUCESS RESPONSE => ${JSON.stringify(data)}`)
+  res.send(data);
 });
 
 app.listen(port, () => {

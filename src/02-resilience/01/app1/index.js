@@ -12,17 +12,19 @@ app.use(express.json());
 app.get('/shipping', (req, res) => {
   // START NEW CODE
   if(isReturn200) {
-    console.info('OK')
-    res.send({
+    const data = {
       data: {
         value: 100
       },
       meta: {
         server: url
       }
-    });
+    };
+  
+    console.info(`SUCESS RESPONSE => ${JSON.stringify(data)}`)
+    res.send(data);
   } else {
-    console.error('Alguma coisa ta errado')
+    console.error('ERROR RESPONSE => Alguma coisa ta errado')
     res.status(500).send('Alguma coisa ta errado');
   }
   // END NEW CODE

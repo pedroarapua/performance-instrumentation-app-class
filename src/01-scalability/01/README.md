@@ -40,7 +40,7 @@ curl http://localhost:3002/shipping
 ```
 * Validar se o nginx ta respondendo na porta 80 e balanceando a carga entre as 2 instancias
 ```
-curl http://localhost:80/shipping
+watch "curl http://localhost:80/shipping"
 ```
 * Analisar logs da app1 + nginx
 ```
