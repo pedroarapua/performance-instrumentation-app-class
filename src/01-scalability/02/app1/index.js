@@ -6,8 +6,15 @@ const url = `http://${host}:${port}`;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send(url);
+app.get('/shipping', (req, res) => {
+  res.send({
+    data: {
+      value: 100
+    },
+    meta: {
+      server: url
+    }
+  });
 });
 
 app.listen(port, () => {

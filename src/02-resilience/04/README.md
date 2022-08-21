@@ -1,14 +1,49 @@
 # Implementação de cache com redis
 
 ### Steps
-* Instalação da lib na aplicação (https://github.com/NodeRedis/node-redis)
-* Copy + Paste exercício anterior.
-* Criar docker-compose com redis.
-* Subir redis localmente com docker.
-* Alterar a lógica do request para a api A, para criar o cache no redis quando o retorno seja com sucesso.
-* Subir a aplicação A e B.
-* Fazer alguns requests na aplicação.
-* Validar se a informação foi gravada em cache.
-* Alterar a lógica de fallback para quando a api A retornar algum erro, fazer um get no redis para verificar se temos alguma informação.
-* Subir a aplicação B.
-* Fazer alguns requests na aplicação B (nesse caso o CB irá se abrir e o fallback deveria ser chamado).
+* Instalação da lib node-redis (https://github.com/NodeRedis/node-redis).
+```
+npm install redis --save
+```
+* Alterar docker-compose
+  * Adicionar service redis.
+  * Adicionar variaveis de ambiente REDIS_HOST e REDIS_PORT ao service app2_instancia1 para que o mesmo possa conectar no redis.
+* Alterar app2:
+  * Adicionar/Configurar o redis lib.
+  * Alterar função "requestRetry" para fazer a persistência do cache no redis, quando o retorno da api seja sucesso.
+* Alterando fallback para buscar informação do cache
+  * Criar função "requestFallbackRedis" para buscar cache no redis
+  * Utilizar a função "requestFallbackRedis" na função "fallback" do circuit breaker.
+* Validando execução da aplicação
+  * Fazer build das imagens com docker-compose
+  ```
+  docker-compose build
+  ```
+  * Subindo aplicações com docker-compose
+  ```
+  docker-compose up -d
+  ```
+  * Fazer um request e analisar se foi retornado a url da app1
+  ```
+  curl http://localhost:3003/shipping
+  ```
+  * Validar se foi gravado informações no cache do redis
+  ```
+  docker-compose exec redis sh
+  redis-cli
+  keys *
+  ```
+  * Forçando indisponibilidade do app1 e validando resiliência utilizando fallback do cache do redis
+  ```
+  docker-compose stop app1_instancia1 app1_instancia2
+  curl http://localhost:3003/shipping
+  ```
+  * Forçando indisponibilidade do redis e validando resiliência utilizando fallback com informações default no app2
+  ```
+  docker-compose stop redis
+  curl http://localhost:3003/shipping
+  ```
+* Remover todos os recursos criados
+```
+docker-compose down
+```

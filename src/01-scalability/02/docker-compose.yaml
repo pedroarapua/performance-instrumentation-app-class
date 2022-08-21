@@ -1,23 +1,27 @@
 version: '3'
 
 services:
-  app_instancia1:
+  app1_instancia1:
     build:
       context: .
       dockerfile: app1/Dockerfile
     image: pos-facef/app1:v1.0.0
     ports:
       - "3001:3000"
+    environment:
+      PORT: 3000
     networks:
       - app-network
   
-  app_instancia2:
+  app1_instancia2:
     build:
       context: .
       dockerfile: app1/Dockerfile
     image: pos-facef/app1:v1.0.0
     ports:
       - "3002:3000"
+    environment:
+      PORT: 3000
     networks:
       - app-network
   
@@ -28,8 +32,8 @@ services:
     volumes:
       - ./nginx-conf:/etc/nginx/conf.d
     depends_on:
-      - app_instancia1
-      - app_instancia2
+      - app1_instancia1
+      - app1_instancia2
     networks:
       - app-network
 

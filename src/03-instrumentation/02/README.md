@@ -1,9 +1,32 @@
 # Implementação de Logs locais com bunyan
 
 ### Steps
-* Instalação / Configuração de uma lib de log na aplicação (https://github.com/trentm/node-bunyan).
-* Copy + Paste exercício anterior.
-* Utilizar o objeto de log nas rotas da api A.
-* Fazer alguns requests na aplicação.
-* Validar logs na saída do terminal.
-* Alterar api B, adicionando middleware com log request. (EXTRA)
+* Instalando lib bunyan
+```
+npm install bunyan --save
+```
+* Configurar app2
+  * Fazendo require da lib e criando uma instancia
+  ```
+  const bunyan = require('bunyan');
+  const log = bunyan.createLogger({ name: 'app2' });
+  ```
+  * Adicionar middleware com log request/response para todas as rotas
+
+
+* Fazer build das imagens com docker-compose
+```
+docker-compose build
+```
+* Subindo aplicações com docker-compose
+```
+docker-compose up -d
+* Fazer alguns requests na app2 e validar se os logs estão aparecendo no terminal.
+```
+watch "curl http://localhost:3003/get"
+docker-compose logs -f app2_instancia1
+```
+* Remover todos os recursos criados
+```
+docker-compose down
+```

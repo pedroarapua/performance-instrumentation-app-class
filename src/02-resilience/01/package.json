@@ -1,8 +1,7 @@
 {
-  "name": "01",
+  "name": "02",
   "version": "1.0.0",
   "description": "",
-  "main": "index-A.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,0 +1,116 @@
+version: '3'
+
+services:
+  app1_instancia1:
+    build:
+      context: .
+      dockerfile: app1/Dockerfile
+    image: pos-facef/app1:v1.0.0
+    ports:
+      - "3001:3000"
+    environment:
+      PORT: 3000
+      IS_RETURN_200: 1
+    env_file:
+      - ./app1/.env
+    networks:
+      - app-network
+  
+  app1_instancia2:
+    build:
+      context: .
+      dockerfile: app1/Dockerfile
+    image: pos-facef/app1:v1.0.0
+    ports:
+      - "3002:3000"
+    environment:
+      PORT: 3000
+      IS_RETURN_200: 0
+    env_file:
+      - ./app1/.env
+    networks:
+      - app-network
+  
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx-conf:/etc/nginx/conf.d
+    depends_on:
+      - app1_instancia1
+      - app1_instancia2
+    networks:
+      - app-network
+  
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+  
+  app2_instancia1:
+    build:
+      context: .
+      dockerfile: app2/Dockerfile
+    image: pos-facef/app2:v1.0.0
+    ports:
+      - "3003:3000"
+    environment:
+      PORT: 3000
+      NGINX_URL: "http://nginx:80/"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
+      LOGSTASH_HOST: 'logstash' #NEW CODE
+      LOGSTASH_PORT: 5000 #NEW CODE
+    env_file:
+      - ./app2/.env
+    depends_on:
+      - nginx
+      - redis
+      - logstash #NEW CODE
+    networks:
+      - app-network
+  
+  # START NEW CODE
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.3
+    environment:
+      - xpack.monitoring.enabled=true
+      - xpack.watcher.enabled=false
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks: 
+      - app-network
+  
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.16.3
+    depends_on: 
+      - elasticsearch
+    ports:
+      - 5000:5000
+    volumes:
+      - ./logstash-conf/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro 
+    networks:
+      - app-network
+  
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.16.3
+    environment:
+    - ELASTICSEARCH_URL=http://elasticsearch:9200
+    depends_on:
+      - logstash
+    ports: 
+      - 5601:5601
+    networks: 
+      - app-network
+  # END NEW CODE
+
+networks:
+  app-network:
+    driver: bridge

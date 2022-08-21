@@ -1,8 +1,15 @@
 # Escalabilidade Automática com Kubernetes através de trigger de cpu
 
-### Step 1 - Copy/Paste [Exercício Anterior](../01/)
+### Step 1 - Criando Manifestos do Kubernetes
+* Criar pasta "kubernetes"
+```
+mkdir kubernetes
+```
+* Criar [manifesto de deploy](./kubernetes/app1/deployment.yaml)
+* Criar [manifesto de service](./kubernetes/app1/service.yaml)
+* Criar [manifesto de hpa](./kubernetes/app1/hpa.yaml)
 
-### Step 2 - Criando cluster kubernetes com kind
+### Step 2 - Criando/configurando cluster kubernetes com kind
 * Criando cluster (opcional)
 ```
 kind create cluster --name pos-facef
@@ -16,12 +23,7 @@ kubectl cluster-info --context kind-pos-facef
 kubectl apply -f https://raw.githubusercontent.com/pedroarapua/performance-instrumentation-app-class/v2/src/01-scalability/02/kubernetes/cluster/components.yaml
 ```
 
-### Step 3 - Criando Manifestos do Kubernetes
-* Criando [manifesto de deploy](./kubernetes/app1/deployment.yaml)
-* Criando [manifesto de service](./kubernetes/app1/service.yaml)
-* Criando [manifesto de hpa](./kubernetes/app1/hpa.yaml)
-
-### Step 4 - Subindo a Aplicação no Kubernetes
+### Step 3 - Subindo a Aplicação no Kubernetes
 * Adicionando a imagem dentro do cluster (NÃO NECESSÁRIO DOCKER REGISTRY)
 ```
 kind load docker-image pos-facef/app1:v1.0.0 --name pos-facef
@@ -37,11 +39,16 @@ export HOST_IP=$(kubectl get nodes -o wide | awk 'NR>1{ print $6 }')
 
 * Validar funcionando da api
 ```
-curl http://${HOST_IP}:30000
+curl http://${HOST_IP}:30000/shipping
 
 ```
 
-### Step 5 - Analisando Comportamento de AutoScale do Kubernetes
+### Step 4 - Configurar/Executar script de carga para forçar uso de CPU
+* Criar pasta "k6"
+```
+mkdir k6
+```
+* Criar [script](./k6/script.js)
 * Visualizar o percentual de utilização (execute o comando em uma aba do terminal)
 ```
 watch "kubectl get hpa"
@@ -55,7 +62,7 @@ watch "kubectl get pods"
 k6 run ./k6/script.js
 ```
 
-### Step 6 - Removendo Deploy da Aplicação
+### Step 5 - Removendo Deploy da Aplicação
 ```
 kubectl delete -f ./kubernetes/app1
 ```

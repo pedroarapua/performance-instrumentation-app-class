@@ -4,14 +4,63 @@
 * Criação de conta New Relic Free (https://newrelic.com/signup?via=login).
 
 ### Steps
-* Instalação / Configuração da lib na aplicação (https://github.com/newrelic/node-newrelic).
-* Pegar e setar token no newrelic.js (https://one.newrelic.com/launcher/account-settings-launcher.account-settings-launcher).
-* Copy + Paste exercício anterior.
-* Inclusão da lib na api A.
-* Executar a api A.
-* Fazer alguns requests na aplicação e validar se a aplicação apareceu no portal do newrelic.
-* Criar uma rota na api A que retorne um erro 500.
-* Fazer alguns requests na nova rota e validar se a aplicação apareceu no portal do newrelic.
-* Inclusão da lib na api B.
-* Fazer alguns requests na aplicação e validar se a aplicação apareceu no portal do newrelic.
-* Alterar a rota criada, adicionando uma instrumentação customizada. (TODO)
+* Instalando/Configuration lib newrelic
+  * Instalação
+  ```
+  npm install newrelic --save
+  ```
+  * Configuração app1
+    * Copiar arquivo de configuração
+    ```
+    cp ./node_modules/newrelic/newrelic.js ./app1
+    ```
+    * Criar arquivo .env dentro da pasta app1 e setar a env "NEW_RELIC_LICENSE_KEY"
+    * Alterar "newrelic.js" setando "app_name" e "license_key" via variavel de ambiente NEW_RELIC_LICENSE_KEY
+    ```
+    app_name: ['app1'],
+    license_key: process.env.NEW_RELIC_LICENSE_KEY || 'license key here',
+    ```
+    * Fazer o require da lib no arquivo app1/index.js
+    ```
+    require('newrelic');
+    ```
+    * Alterar service "app1_instancia1" e "app1_instancia2" para adicionar o arquivo .env
+  
+* Fazer alguns requests na app1 e validar se a aplicação apareceu no portal do newrelic.
+```
+watch "curl http://localhost:80"
+```
+
+* Configuração app2
+    * Copiar arquivo de configuração
+    ```
+    cp ./node_modules/newrelic/newrelic.js ./app2
+    ```
+    * Criar arquivo .env dentro da pasta app2 e setar a env "NEW_RELIC_LICENSE_KEY"
+    * Alterar "newrelic.js" setando "app_name" e "license_key" via variavel de ambiente NEW_RELIC_LICENSE_KEY
+    ```
+    app_name: ['app2'],
+    license_key: process.env.NEW_RELIC_LICENSE_KEY || 'license key here',
+    ```
+    * Fazer o require da lib no arquivo app2/index.js
+    ```
+    require('newrelic');
+    ```
+    * Alterar service "app2_instancia1" para adicionar o arquivo .env
+
+
+* Fazer build das imagens com docker-compose
+```
+docker-compose build
+```
+* Subindo aplicações com docker-compose
+```
+docker-compose up -d
+* Fazer alguns requests na app2 e validar se a aplicação apareceu no portal do newrelic.
+```
+watch "curl http://localhost:3003/get"
+```
+* Remover todos os recursos criados
+```
+docker-compose down
+```
