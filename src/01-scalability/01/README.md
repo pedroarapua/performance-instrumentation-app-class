@@ -20,13 +20,13 @@ node app1/index.js
 curl http://localhost:3000/shipping
 ```
 * Criar arquivo Dockerfile para a "app1" em "${WORKSPACE}/app1"
-* Criando arquivo nginx.conf em "${WORKSPACE}/nginx-conf"
-* Configurando um docker-compose
-  * Criando arquivo [docker-compose](./docker-compose.yaml)
+* Criar arquivo nginx.conf em "${WORKSPACE}/nginx-conf"
+* Configurar um docker-compose
+  * Criar arquivo docker-compose.yaml em "${WORKSPACE}"
   * Configurar app1_instancia1
   * Configurar app1_instancia2
   * Configurar nginx
-* Subindo as Aplicações + Nginx LoadBalance
+* Subir as Aplicações + Nginx LoadBalance
 ```
 docker-compose up -d
 ```
