@@ -36,7 +36,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx-conf:/etc/nginx/conf.d
+      - ./app1/nginx-conf:/etc/nginx/conf.d
     depends_on:
       - app1_instancia1
       - app1_instancia2
