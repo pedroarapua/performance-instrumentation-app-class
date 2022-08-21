@@ -11,20 +11,16 @@ npm install request request-promise --save
   * Alterar serviço "app1_instancia2" no docker-compose, adicionando variavel de ambiente IS_RETURN_200: 0, assim sempre retornando FALHA para essa instancia
 
 * Criar app2 (client):
-  ```
-  * Criando pasta "app2"
+  * Criando pasta "app2" em "${WORKSPACE}"
   ```
   mkdir app2
   ```
-  * Crie uma rota "/get" através do express
-  * Receba variável de ambiente "NGINX_URL" do endpoint da app1 via nginx.
-  * Crie a função recursiva "requestRetry" que faça chamada no endpoint recebido anteriormente, essa função deve receber o máximo de retentativas a serem feitas.
-  * Adicione alguns logs para saber quando foi feito o retry.
-  * Utilize a função recursiva criada.
-  * Trate a resposta recebida e retorne sucesso ou erro.
-  * Criar Dockerfile, igualmente o Dockerfile do app1, porém alterando o COPY do arquivo index.js
+  * Criar arquivo index.js em "${WORKSPACE}/app1"
+  * Crie a função recursiva "requestRetry" que faça chamada no endpoint da app1, essa função deve receber o máximo de retentativas a serem feitas.
+  * Crie uma rota "/get" que utilize a função criada anteriormente.
+  * Criar Dockerfile, igualmente o Dockerfile do "app1", porém alterando o COPY da pasta "app1" -> "app2"
   ```
-  COPY ./app2/index.js ./index.js
+  COPY ./app2/*.js ./
   ```
   * Alterar docker-compose adicionando o app client "app2_instancia1"
 

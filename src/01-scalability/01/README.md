@@ -9,6 +9,10 @@ npm init -y
 ```
 npm install express --save
 ```
+* Criar pasta "app1" em "${WORKSPACE}"
+```
+mkdir app1
+```
 * Criar arquivo index.js em "${WORKSPACE}/app1"
 * Criar rota GET "/shipping" utilizando o express
 * Executando Aplicação
