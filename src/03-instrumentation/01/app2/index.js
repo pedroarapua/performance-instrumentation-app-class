@@ -55,14 +55,21 @@ async function requestFallbackRedis () {
 
 async function requestRetry (maxRetryCount = 1) {
   console.info('Executando Request Api');
-  const { body } = await got(shippingUrl, { retry: maxRetryCount });
-
+  let response;
   try {
-    await client.set(REDISCACHEKEY, JSON.stringify(body));
+    response = await got(shippingUrl, { retry: maxRetryCount }).json();
+  } catch(err) {
+    console.error('Error to request /shipping => ', err);
+    throw err;
+  }
+  
+  try {
+    await client.set(REDISCACHEKEY, JSON.stringify(response));
   } catch(err) {
     console.error('Error to save cache in Redis => ', err);
   }
-  return body;
+
+  return response;
 }
 
 app.get('/get', async (req, res) => {

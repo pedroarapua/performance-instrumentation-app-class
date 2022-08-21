@@ -10,7 +10,14 @@ const got = require('got');
 
 // START MODIFIED CODE
 async function requestRetry (maxRetryCount = 1) {
-  got(shippingUrl, { retry: maxRetryCount });
+  let response;
+  try {
+    response = await got(shippingUrl, { retry: maxRetryCount }).json();
+  } catch(err) {
+    console.error('Error to request /shipping => ', err);
+    throw err;
+  }
+  return response
 }
 // END MODIFIED CODE
 

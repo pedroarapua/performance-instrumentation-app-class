@@ -32,7 +32,14 @@ breaker.fallback(() => {
 // END NEW CODE
 
 async function requestRetry (maxRetryCount = 1) {
-  got(shippingUrl, { retry: maxRetryCount });
+  let response;
+  try {
+    response = await got(shippingUrl, { retry: maxRetryCount }).json();
+  } catch(err) {
+    console.error('Error to request /shipping => ', err);
+    throw err;
+  }
+  return response
 }
 
 app.get('/get', async (req, res) => {
