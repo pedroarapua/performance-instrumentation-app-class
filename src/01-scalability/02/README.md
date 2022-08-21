@@ -32,7 +32,7 @@
   ```
   * Aplicando os manifestos kubernetes
   ```
-  kubectl apply -f ./kubernetes/app1
+  kubectl apply -f ./app1/kubernetes
   ```
   * Obtendo o IP para o Cluster Kubernetes (field: INTERNAL-IP)
   ```
