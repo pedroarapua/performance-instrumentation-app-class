@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: app1/Dockerfile
     image: pos-facef/app1:v1.0.0
+    restart: always
     ports:
       - "3001:3000"
     environment:
@@ -19,6 +20,7 @@ services:
       context: .
       dockerfile: app1/Dockerfile
     image: pos-facef/app1:v1.0.0
+    restart: always
     ports:
       - "3002:3000"
     environment:
@@ -29,6 +31,7 @@ services:
   
   nginx:
     image: nginx:alpine
+    restart: always
     ports:
       - "80:80"
     volumes:
@@ -42,6 +45,7 @@ services:
   ## START NEW CODE
   redis:
     image: redis:alpine
+    restart: always
     ports:
       - "6379:6379"
     networks:
@@ -53,6 +57,7 @@ services:
       context: .
       dockerfile: app2/Dockerfile
     image: pos-facef/app2:v1.0.0
+    restart: always
     ports:
       - "3003:3000"
     environment:
