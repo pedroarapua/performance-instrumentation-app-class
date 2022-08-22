@@ -95,7 +95,7 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - ./logstash-conf/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro 
+      - ./app2/logstash-conf/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro 
     networks:
       - app-network
   
