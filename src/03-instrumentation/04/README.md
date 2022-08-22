@@ -14,18 +14,20 @@
 ```
 docker-compose up -d
 ```
-* Fazer alguns requests na app1_instancia2 onde a mesma sempre retornará erro.
-```
-watch "curl http://localhost:3002/shipping"
-docker-compose logs -f
-```
-* Validar se o alerta foi recebido via email
-* Fazer alguns requests na app1_instancia1 onde a mesma sempre retornará sucesso.
-```
-watch "curl http://localhost:3001/shipping"
-docker-compose logs -f
-```
-* Validar se o alerta foi normalizado via email
+* Recebendo email de anomalia
+  * Fazer alguns requests na app1_instancia2 onde a mesma sempre retornará erro.
+  ```
+  watch "curl http://localhost:3002/shipping"
+  docker-compose logs -f
+  ```
+  * Validar se o alerta foi recebido via email
+* Recebendo email de anomalia restabelecida
+  * Fazer alguns requests na app1_instancia1 onde a mesma sempre retornará sucesso.
+  ```
+  watch "curl http://localhost:3001/shipping"
+  docker-compose logs -f
+  ```
+  * Validar se o alerta foi normalizado via email
 * Remover todos os recursos criados
 ```
 docker-compose down
