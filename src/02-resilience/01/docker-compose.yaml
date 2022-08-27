@@ -42,7 +42,6 @@ services:
     networks:
       - app-network
   
-  ## START NEW CODE
   app2_instancia1:
     build:
       context: .
@@ -58,23 +57,6 @@ services:
       - nginx
     networks:
       - app-network
-  
-  app2_instancia1:
-    build:
-      context: .
-      dockerfile: app2/Dockerfile
-    image: pos-facef/app2:v1.0.0
-    restart: always
-    ports:
-      - "3003:3000"
-    environment:
-      PORT: 3000
-      NGINX_URL: "http://nginx:80"
-    depends_on:
-      - nginx
-    networks:
-      - app-network
-  ## END NEW CODE
 
 networks:
   app-network:
