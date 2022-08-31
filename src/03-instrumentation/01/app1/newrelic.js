@@ -6,10 +6,14 @@
  * description of configuration variables and their potential values.
  */
 exports.config = {
-  //START NEW CODE
+  /**
+   * Array of application names.
+   */
   app_name: ['app1'],
-  license_key: process.env.NEW_RELIC_LICENSE_KEY || 'license key here',
-  //END NEW CODE
+  /**
+   * Your New Relic license key.
+   */
+  license_key: 'c4a9c46d4ca0f5317777b5328d85c39f75d9NRAL',
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing

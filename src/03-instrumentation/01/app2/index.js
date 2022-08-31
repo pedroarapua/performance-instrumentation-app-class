@@ -1,6 +1,4 @@
-// START NEW CODE
 require('newrelic');
-// END NEW CODE
 const express = require('express');
 const requestPromise = require('request-promise');
 const app = express();
@@ -31,6 +29,52 @@ const client = redis.createClient({
 client.on('error', (err) => console.log('Redis Client Error', err));
 client.connect().then(() => console.log('Redis Conectado'));
 const REDISCACHEKEY = 'get-api';
+
+const bunyan = require('bunyan');
+//START NEW CODE
+const bunyantcp = require('bunyan-logstash-tcp');
+const logstashHost = process.env.LOGSTASH_HOST || 'localhost';
+const logstashPort = process.env.LOGSTASH_PORT || 5000;
+const log = bunyan.createLogger({ 
+  name: 'app2',
+  streams: [
+    {
+      stream: process.stdout
+    },
+    {
+      type: "raw",
+      stream: bunyantcp.createStream({
+          host: logstashHost,
+          port: logstashPort
+      })
+    }
+  ]
+});
+//END NEW CODE
+
+app.use((req, res, next) => {
+  const logRequest = {
+    method: req.method,
+    url: req.url,
+    headers: JSON.stringify(req.headers),
+    params: JSON.stringify(req.params),
+    query: JSON.stringify(req.query),
+    body: JSON.stringify(req.body)
+  }
+
+  const logResponse = {
+    headers: JSON.stringify(res.getHeaders()),
+    statusCode: res.statusCode
+  }
+
+
+  log.info({ 
+    req: logRequest,
+    res: logResponse
+  });
+  next();
+  
+});
 
 async function requestFallbackRedis () {
   console.info('Fallback Executado');
