@@ -12,4 +12,8 @@ Link Projeto: https://github.com/AniltonMoraisJr/trabalho-performance-instrument
 
 Nome: Lucas Ferreira Galvão 
 Matricula:
-Link Projeto: https://github.com/lucasferreiragalvao/performance_instrumentation)
+Link Projeto: https://github.com/lucasferreiragalvao/performance_instrumentation
+
+Nome: Andre Luiz Gonçalves Silva
+Matricula:
+Link Projeto: https://github.com/andrebetta123/performance-instrumentation-app-class
