@@ -12,4 +12,4 @@ Esse repositório possui conteúdos da aula de Performance e Instrumentação de
 * Criação [NewRelic Account] (https://newrelic.com/signup?via=login)
 
 ### Slide
-* https://docs.google.com/presentation/d/1CEZ0ypGWU9jgKMacngcFjLFrSuo6mRAidKbu3aUjJ70/edit?usp=sharing
+* https://docs.google.com/presentation/d/1SPTexapDsZRsYP54fseKDsgJretokehNw87WP6VIoBE/edit?usp=sharing
