@@ -8,7 +8,7 @@
 - Joao Marcos Rodrigues Stefani ([Link](https://github.com/JoaoStefani/cloud-performance))<br>
 - Joyce Ribeiro ([Link](https://github.com/riberjoy/app-performance-instrumentacao-aplicacoes-cloud))<br>
 - Leonardo Carloni ([Link](https://github.com/LeoCarloni/performance-instrumentation-app-pos-unifacef))<br>
-- Nome: Leonardo de Carvalho Neves ([Link](https://github.com/neves-c-leonardo/unifacef-performance-instrumentation))<br>
+- Leonardo de Carvalho Neves ([Link](https://github.com/neves-c-leonardo/unifacef-performance-instrumentation))<br>
 - Lucas Ferreira Galvão ([Link](https://github.com/lucasferreiragalvao/performance_instrumentation))<br>
 - Lucas Lauro ([Link](https://github.com/LucasLauro96/cloud-performance-instrumentation-facef))<br>
 - Odair Pedroso Junior ([Link](https://github.com/odair-pedroso/unifacef-performance-instrumentacao))<br>
