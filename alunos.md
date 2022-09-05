@@ -21,3 +21,7 @@ Matricula:
 Nome: Vinícius Carrijo
 Matricula:
 [Link](https://github.com/ViniciusCarrijo/facef-performance)
+
+Nome: Joao Marcos Rodrigues Stefani
+Matricula:
+[Link](https://github.com/JoaoStefani/cloud-performance)
