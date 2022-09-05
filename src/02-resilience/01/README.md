@@ -15,7 +15,7 @@ npm install request request-promise --save
   ```
   mkdir app2
   ```
-  * Criar arquivo index.js em "${WORKSPACE}/app1"
+  * Criar arquivo index.js em "${WORKSPACE}/app2"
   * Crie a função recursiva "requestRetry" que faça chamada no endpoint da app1, essa função deve receber o máximo de retentativas a serem feitas.
   * Crie uma rota "/get" que utilize a função criada anteriormente.
   * Criar Dockerfile, igualmente o Dockerfile do "app1", porém alterando o COPY da pasta "app1" -> "app2"
