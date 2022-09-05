@@ -6,6 +6,10 @@ Nome: Anilton Francisco de Morais Junior
 Matricula:
 [Link](https://github.com/AniltonMoraisJr/trabalho-performance-instrumentacao)
 
+Nome: Bruna Késsia Gonçalves
+Matricula:
+[Link](https://github.com/brugoncalves/performance-instrumentation-app-class)
+
 Nome: Hyan Kelwin
 Matricula:
 [Link](https://github.com/hyankelwin/escalability)
