@@ -34,6 +34,10 @@ Nome: Lucas Lauro
 Matricula:
 [Link](https://github.com/LucasLauro96/cloud-performance-instrumentation-facef)
 
+Nome: Odair Pedroso Junior
+Matricula:
+[Link](https://github.com/odair-pedroso/unifacef-performance-instrumentacao)
+
 Nome: Reinaldo Silveira 
 Matricula: 
 [Link](https://github.com/rpsilveira/performance-instrumentation-app)
