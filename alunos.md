@@ -14,6 +14,10 @@ Nome: Joao Marcos Rodrigues Stefani
 Matricula:
 [Link](https://github.com/JoaoStefani/cloud-performance)
 
+Nome: Joyce Ribeiro
+Matricula:
+[Link](https://github.com/riberjoy/app-performance-instrumentacao-aplicacoes-cloud)
+
 Nome: Lucas Ferreira Galvão 
 Matricula:
 [Link](https://github.com/lucasferreiragalvao/performance_instrumentation)
