@@ -1,1 +1,0 @@
-# Pasta contendo os exercícios sobre resiliência
