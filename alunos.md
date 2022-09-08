@@ -14,4 +14,5 @@
 - Odair Pedroso Junior ([Link](https://github.com/odair-pedroso/unifacef-performance-instrumentacao))<br>
 - Reinaldo Silveira ([Link](https://github.com/rpsilveira/performance-instrumentation-app))<br>
 - Thaísa Honório Morandini ([Link](https://github.com/thaisamorandini89/dockerteste))<br>
+- Thiago Henrique de Matos ([Link](https://github.com/ThiagoHMatos/performance-instrumentation-app-class-1))<br>
 - Vinícius Carrijo ([Link](https://github.com/ViniciusCarrijo/facef-performance))<br>
